@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>UA Creations – CNC Wood Designs</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --dark:#1E0F00;--mid:#5A2D0C;--warm:#A0522D;--gold:#C8933A;--light:#E8C98A;
+  --cream:#FAF6EE;--cream2:#F3EAD8;--white:#FFFDF8;--text:#1E0F00;--muted:#7A5033;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:var(--dark);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:62px;
+}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--light);letter-spacing:1px;}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:1.75rem;}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(232,201,138,0.7);letter-spacing:.5px;transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-wa{
+  background:#25D366;color:#fff;border:none;border-radius:6px;
+  padding:8px 14px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;
+  transition:opacity .2s;cursor:pointer;
+}
+.nav-wa:hover{opacity:.85;}
+@media(max-width:600px){.nav-links{display:none;}.logo{font-size:17px;}}
+
+/* HERO */
+.hero{
+  min-height:480px;
+  background:linear-gradient(135deg,var(--dark) 0%,var(--mid) 55%,var(--warm) 100%);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:4rem 1.5rem;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(90deg,rgba(200,147,58,.06) 0,rgba(200,147,58,.06) 1px,transparent 1px,transparent 48px),
+    repeating-linear-gradient(0deg,rgba(200,147,58,.04) 0,rgba(200,147,58,.04) 1px,transparent 1px,transparent 48px);
+}
+.hero-inner{position:relative;z-index:1;max-width:640px;}
+.hero-badge{
+  display:inline-block;background:rgba(200,147,58,.18);color:var(--light);
+  border:1px solid rgba(200,147,58,.35);border-radius:20px;
+  font-size:11px;letter-spacing:2.5px;padding:5px 16px;text-transform:uppercase;margin-bottom:1.25rem;
+}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,58px);color:var(--light);line-height:1.1;margin-bottom:.9rem;}
+.hero h1 em{color:var(--gold);font-style:normal;}
+.hero p{font-size:16px;color:rgba(232,201,138,.68);font-weight:300;line-height:1.75;margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;}
+.hero-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:#fff;border:none;border-radius:8px;padding:13px 26px;font-size:14px;font-weight:500;transition:all .2s;cursor:pointer;}
+.btn-gold:hover{background:var(--warm);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--light);border:1.5px solid rgba(232,201,138,.3);border-radius:8px;padding:13px 26px;font-size:14px;font-weight:500;transition:all .2s;cursor:pointer;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+/* SECTIONS */
+section{padding:4.5rem 1.5rem;}
+.container{max-width:1060px;margin:0 auto;}
+.sec-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.6rem;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,36px);color:var(--dark);line-height:1.2;margin-bottom:.85rem;}
+.sec-sub{font-size:15px;color:var(--muted);font-weight:300;line-height:1.75;}
+
+/* ABOUT */
+.about{background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr;}}
+.about-visual{
+  background:var(--dark);border-radius:14px;height:300px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;
+  position:relative;overflow:hidden;
+}
+.cnc-grid{
+  position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(200,147,58,.08) 0,rgba(200,147,58,.08) 1px,transparent 1px,transparent 32px),
+    repeating-linear-gradient(90deg,rgba(200,147,58,.08) 0,rgba(200,147,58,.08) 1px,transparent 1px,transparent 32px);
+}
+.cnc-icon{font-size:56px;position:relative;z-index:1;}
+.cnc-label{font-family:'Playfair Display',serif;font-size:15px;color:var(--light);position:relative;z-index:1;letter-spacing:1px;}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1.75rem;}
+@media(max-width:400px){.services{grid-template-columns:1fr;}}
+.svc{background:var(--cream2);border-radius:10px;padding:1.1rem;border-left:3px solid var(--gold);}
+.svc h4{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:3px;}
+.svc p{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* CONNECT */
+.connect{background:var(--cream2);}
+.connect-header{text-align:center;margin-bottom:2.5rem;}
+.connect-header .sec-sub{margin:0 auto;max-width:480px;}
+.social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;}
+.social-card{
+  background:var(--white);border-radius:14px;
+  border:1px solid rgba(90,45,12,.1);
+  padding:1.5rem;
+  display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;
+  transition:transform .2s,box-shadow .2s;cursor:pointer;
+}
+.social-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(30,15,0,.12);}
+.social-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.social-card h3{font-size:16px;font-weight:500;color:var(--dark);}
+.social-card p{font-size:13px;color:var(--muted);line-height:1.55;flex:1;}
+.social-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;border:none;background:none;padding:0;cursor:pointer;transition:opacity .2s;}
+.social-link:hover{opacity:.7;}
+.wa-card .social-icon{background:#dcfce7;}
+.fb-card .social-icon{background:#dbeafe;}
+.ig-card .social-icon{background:#fce7f3;}
+.tt-card .social-icon{background:#f0fdf4;}
+
+/* CATALOG */
+.catalog-sec{background:var(--white);}
+.catalog-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+@media(max-width:640px){.catalog-inner{grid-template-columns:1fr;}}
+.catalog-mockup{background:var(--dark);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;gap:1rem;}
+.cat-header{display:flex;align-items:center;gap:10px;}
+.cat-avatar{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;}
+.cat-name{font-size:14px;font-weight:500;color:var(--light);}
+.cat-sub{font-size:11px;color:rgba(232,201,138,.5);}
+.cat-items{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.cat-item{background:rgba(255,255,255,.06);border-radius:10px;padding:.85rem;border:1px solid rgba(200,147,58,.15);}
+.cat-item-icon{font-size:28px;margin-bottom:.4rem;}
+.cat-item-name{font-size:12px;font-weight:500;color:var(--light);}
+.cat-item-tag{font-size:10px;color:var(--gold);margin-top:2px;}
+.catalog-btn{background:#25D366;color:#fff;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .2s;cursor:pointer;}
+.catalog-btn:hover{opacity:.88;}
+
+/* CTA */
+.cta-sec{background:var(--dark);text-align:center;padding:5rem 1.5rem;}
+.cta-sec .sec-title{color:var(--light);}
+.cta-sec .sec-label{color:var(--gold);}
+.cta-sec .sec-sub{color:rgba(232,201,138,.6);margin:0 auto 2rem;max-width:480px;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-wa-lg{background:#25D366;color:#fff;border:none;border-radius:10px;padding:15px 28px;font-size:15px;font-weight:500;display:flex;align-items:center;gap:8px;transition:all .2s;cursor:pointer;}
+.btn-wa-lg:hover{opacity:.88;transform:translateY(-1px);}
+
+/* FOOTER */
+footer{background:#130900;color:rgba(232,201,138,.4);text-align:center;padding:1.75rem;font-size:12px;}
+footer strong{color:var(--light);}
+.footer-socials{display:flex;gap:1rem;justify-content:center;margin-bottom:.75rem;}
+.footer-socials button{background:rgba(255,255,255,.06);border:1px solid rgba(200,147,58,.2);border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;transition:background .2s;cursor:pointer;}
+.footer-socials button:hover{background:rgba(200,147,58,.15);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">UA <span>Creations</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#connect">Connect</a>
+    <a href="#catalog">Catalog</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-wa" onclick="openWA()">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.1 1.513 5.827L0 24l6.335-1.652A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.638-.491-5.163-1.349L3 21.5l.872-3.742A9.962 9.962 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp
+  </button>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">⚙️ CNC Wood Design Studio</div>
+    <h1>Precision <em>CNC</em> Designs<br/>for Beautiful Interiors</h1>
+    <p>UA Creations crafts stunning wood patterns, panels & home decor using state-of-the-art CNC machines. Browse our catalog or reach us directly.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">View Catalog</button>
+      <button class="btn-ghost" onclick="document.getElementById('connect').scrollIntoView({behavior:'smooth'})">Follow Us</button>
+    </div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="cnc-grid"></div>
+        <div class="cnc-icon">⚙️</div>
+        <div class="cnc-label">CNC Design Studio</div>
+      </div>
+      <div>
+        <div class="sec-label">About Us</div>
+        <h2 class="sec-title">Where Technology Meets Wood Artistry</h2>
+        <p class="sec-sub">UA Creations is a CNC wood design studio creating precision-cut patterns and home interior designs. We plan to expand into full product manufacturing — for now, follow us and get in touch to discuss your project.</p>
+        <div class="services">
+          <div class="svc"><h4>⚙️ CNC Cutting</h4><p>Precision machine-cut wood designs and panels.</p></div>
+          <div class="svc"><h4>🏠 Interior Designs</h4><p>Custom patterns for walls, ceilings & furniture.</p></div>
+          <div class="svc"><h4>📐 Custom Projects</h4><p>Send us your idea — we'll design it for you.</p></div>
+          <div class="svc"><h4>🚀 Coming Soon</h4><p>Full product manufacturing & home delivery.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="connect" id="connect">
+  <div class="container">
+    <div class="connect-header">
+      <div class="sec-label">Stay Connected</div>
+      <h2 class="sec-title">Find Us Everywhere</h2>
+      <p class="sec-sub">Chat with us on WhatsApp, browse our catalog, or follow our latest designs on social media.</p>
+    </div>
+    <div class="social-grid">
+
+      <div class="social-card wa-card" onclick="openWA()">
+        <div class="social-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#16a34a"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.1 1.513 5.827L0 24l6.335-1.652A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.638-.491-5.163-1.349L3 21.5l.872-3.742A9.962 9.962 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </div>
+        <h3>WhatsApp</h3>
+        <p>Chat with us directly, browse our catalog, ask about custom designs or place an order.</p>
+        <button class="social-link" style="color:#16a34a;">Open Chat ↗</button>
+      </div>
+
+      <div class="social-card fb-card" onclick="openLink('https://facebook.com/YOUR_PAGE')">
+        <div class="social-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#1d4ed8"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </div>
+        <h3>Facebook</h3>
+        <p>Follow our Facebook page for new design posts, project updates and behind-the-scenes.</p>
+        <button class="social-link" style="color:#1d4ed8;">Visit Page ↗</button>
+      </div>
+
+      <div class="social-card ig-card" onclick="openLink('https://instagram.com/YOUR_HANDLE')">
+        <div class="social-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#be185d"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </div>
+        <h3>Instagram</h3>
+        <p>See our latest CNC design posts, reels and client projects on Instagram.</p>
+        <button class="social-link" style="color:#be185d;">Follow Us ↗</button>
+      </div>
+
+      <div class="social-card tt-card" onclick="openLink('https://tiktok.com/@YOUR_HANDLE')">
+        <div class="social-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#15803d"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/></svg>
+        </div>
+        <h3>TikTok</h3>
+        <p>Watch our CNC machine in action — short videos of our design process and results.</p>
+        <button class="social-link" style="color:#15803d;">Watch Videos ↗</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="catalog-sec" id="catalog">
+  <div class="container">
+    <div class="catalog-inner">
+      <div>
+        <div class="sec-label">Our Catalog</div>
+        <h2 class="sec-title">Browse Our WhatsApp Catalog</h2>
+        <p class="sec-sub">Our full design catalog lives on WhatsApp. Browse CNC panels, wall art, interior pieces and more — then message us to discuss your project or get a quote.</p>
+        <br/>
+        <button class="btn-gold" style="margin-top:.5rem;" onclick="openWA()">Open WhatsApp Catalog →</button>
+      </div>
+      <div class="catalog-mockup">
+        <div class="cat-header">
+          <div class="cat-avatar">UA</div>
+          <div>
+            <div class="cat-name">UA Creations</div>
+            <div class="cat-sub">CNC Wood Design Studio · Online</div>
+          </div>
+        </div>
+        <div class="cat-items">
+          <div class="cat-item"><div class="cat-item-icon">🪵</div><div class="cat-item-name">Wall Panels</div><div class="cat-item-tag">CNC Cut</div></div>
+          <div class="cat-item"><div class="cat-item-icon">🪞</div><div class="cat-item-name">Mirror Frames</div><div class="cat-item-tag">Custom</div></div>
+          <div class="cat-item"><div class="cat-item-icon">🌀</div><div class="cat-item-name">Geometric Art</div><div class="cat-item-tag">Precision Cut</div></div>
+          <div class="cat-item"><div class="cat-item-icon">📐</div><div class="cat-item-name">Custom Design</div><div class="cat-item-tag">Your Idea</div></div>
+        </div>
+        <button class="catalog-btn" onclick="openWA()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.1 1.513 5.827L0 24l6.335-1.652A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.638-.491-5.163-1.349L3 21.5l.872-3.742A9.962 9.962 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          View Full Catalog on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec" id="contact">
+  <div class="container">
+    <div class="sec-label">Get in Touch</div>
+    <h2 class="sec-title">Have a Project in Mind?</h2>
+    <p class="sec-sub">Whether it's a custom design, a bulk order inquiry, or just a question — we're one message away.</p>
+    <div class="cta-btns">
+      <button class="btn-wa-lg" onclick="openWA()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.1 1.513 5.827L0 24l6.335-1.652A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.638-.491-5.163-1.349L3 21.5l.872-3.742A9.962 9.962 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Message on WhatsApp
+      </button>
+      <button class="btn-ghost" onclick="openLink('https://instagram.com/YOUR_HANDLE')">Follow on Instagram</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-socials">
+    <button title="WhatsApp" onclick="openWA()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(232,201,138,.6)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.1 1.513 5.827L0 24l6.335-1.652A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.638-.491-5.163-1.349L3 21.5l.872-3.742A9.962 9.962 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </button>
+    <button title="Facebook" onclick="openLink('https://facebook.com/YOUR_PAGE')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(232,201,138,.6)"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </button>
+    <button title="Instagram" onclick="openLink('https://instagram.com/YOUR_HANDLE')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(232,201,138,.6)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </button>
+  </div>
+  <p><strong>UA Creations</strong> — CNC Wood Design Studio &nbsp;|&nbsp; © 2025 All rights reserved</p>
+</footer>
+
+<script>
+function openWA(msg){
+  // ✏️ REPLACE this number with your WhatsApp number (country code + number, no + sign)
+  var num='923000000000';
+  var text=msg||'Hi UA Creations! I came from your website and would like to know more about your CNC wood designs.';
+  window.open('https://wa.me/'+num+'?text='+encodeURIComponent(text),'_blank');
+}
+function openLink(url){
+  window.open(url,'_blank');
+}
+</script>
+</body>
+</html>
